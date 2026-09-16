@@ -217,12 +217,13 @@ h1 em, h2 em, h3 em { color: var(--gold); font-style: italic; }
 .hero .eyebrow { color: rgba(255,255,255,.8); }
 
 #estimate, #services, #comparison, #location, #reviews, #faq { width: 100%; padding-right: max(16px, calc((100% - 1184px) / 2)); padding-left: max(16px, calc((100% - 1184px) / 2)); }
-#estimate { background: #f8fafc; }
+#estimate { background: #EAF1FA; }
 #services { background: #fff; }
-#comparison { background: #f4f6f8; }
-#location { background: #F5F5F7; }
-#reviews { background: #fff; }
-#faq { background: #fbfbfc; }
+#comparison { background: #F1EEE8; }
+#location { background: #EAF2F0; }
+#reviews { background: #F7F3EC; }
+#faq { background: #F5F7FA; }
+.proof-strip { background: #E7EDF5; }
 .triage-form { background: #F5F5F7; border: 1px solid #e5e7eb; box-shadow: 0 8px 24px rgba(17,24,39,.07); }
 .triage-form label { border-bottom-color: #d1d5db; }
 .service-card { background: #F5F5F7 !important; border-color: #e5e7eb !important; box-shadow: 0 10px 26px rgba(17,24,39,.08); }
