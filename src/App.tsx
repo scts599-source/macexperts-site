@@ -42,11 +42,12 @@ function App() {
   const [family, setFamily] = useState("Air M-Series");
   const [symptom, setSymptom] = useState("No Power / Logic Board");
   const [fulfillment, setFulfillment] = useState("Walk-in to Kalyan Nagar Lab");
+  const [phone, setPhone] = useState("");
   const [formMessage, setFormMessage] = useState("");
 
   const handleTriage = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setFormMessage(`${family} / ${symptom} / ${fulfillment} noted. We will confirm availability and your quote shortly.`);
+    setFormMessage(`${family} / ${symptom} / ${fulfillment} / ${phone} noted. We will confirm availability and your quote shortly.`);
   };
 
   const closeMenu = () => setMobileOpen(false);
@@ -68,7 +69,7 @@ function App() {
       </header>
 
       <main id="top">
-        <section className="hero">
+        <section className="hero bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#AFD2FA]/10 via-[#182350] to-[#182350]">
           <img className="hero-image" src="/images/macexperts-bench.jpg" alt="Technician repairing a MacBook logic board at a precision repair bench" />
           <div className="hero-shade" />
           <div className="hero-inner section-wrap">
@@ -77,18 +78,18 @@ function App() {
           </div>
         </section>
 
-        <section className="estimate section-wrap" id="estimate"><div className="section-intro"><span className="eyebrow"><span /> Reserve bench diagnostic</span><h2>Tell us what your<br /><em>Mac needs.</em></h2></div><form className="estimate-form triage-form" onSubmit={handleTriage}><label>MacBook family<select value={family} onChange={(event) => setFamily(event.target.value)}><option>Air M-Series</option><option>Pro 14/16&quot;</option><option>Pro 13&quot;</option><option>Intel Legacy</option></select><Icon name="chevron" size={14} /></label><label>Primary symptom<select value={symptom} onChange={(event) => setSymptom(event.target.value)}><option>No Power / Logic Board</option><option>Screen Glitch / Shatter</option><option>Liquid Ingress</option><option>Battery/Thermal</option></select><Icon name="chevron" size={14} /></label><label>Preferred fulfillment<select value={fulfillment} onChange={(event) => setFulfillment(event.target.value)}><option>Walk-in to Kalyan Nagar Lab</option><option>Insured Doorstep Pickup</option></select><Icon name="chevron" size={14} /></label><button className="button button-accent full-button" type="submit">Check Bench Availability &amp; Get Quote <Icon name="arrow" size={15} /></button><p className="form-result" aria-live="polite">{formMessage}</p></form></section>
+        <section className="estimate section-wrap bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#AFD2FA]/10 via-[#182350] to-[#182350]" id="estimate"><div className="section-intro"><span className="eyebrow"><span /> Reserve bench diagnostic</span><h2>Tell us what your<br /><em>Mac needs.</em></h2></div><form className="estimate-form triage-form" onSubmit={handleTriage}><label>Select Exact Model<select value={family} onChange={(event) => setFamily(event.target.value)}><option>MacBook Air M1</option><option>MacBook Air M2/M3</option><option>MacBook Pro 13&quot; (M1/M2)</option><option>MacBook Pro 14&quot;/16&quot; (M-Series)</option><option>Older Intel Mac</option></select><Icon name="chevron" size={14} /></label><label>Primary symptom<select value={symptom} onChange={(event) => setSymptom(event.target.value)}><option>No Power / Logic Board</option><option>Screen Glitch / Shatter</option><option>Liquid Ingress</option><option>Battery/Thermal</option></select><Icon name="chevron" size={14} /></label><label>Preferred fulfillment<select value={fulfillment} onChange={(event) => setFulfillment(event.target.value)}><option>Walk-in to Kalyan Nagar Lab</option><option>Insured Doorstep Pickup</option></select><Icon name="chevron" size={14} /></label><label>WhatsApp / Phone Number<input type="tel" value={phone} onChange={(event) => setPhone(event.target.value)} placeholder="+91 Mobile Number" required /></label><button className="button button-accent full-button" type="submit">Check Bench Availability &amp; Get Quote <Icon name="arrow" size={15} /></button><p className="form-result" aria-live="polite">{formMessage}</p></form></section>
 
         <section className="proof-strip"><div className="section-wrap proof-grid"><div><strong>15,000+</strong><span>MacBooks repaired</span></div><div><strong>100%</strong><span>Genuine Apple parts</span></div><div><strong>60 min</strong><span>Battery / screen service</span></div><div><strong>90 days</strong><span>Unconditional warranty</span></div></div></section>
 
-        <section className="services section-wrap" id="services"><div className="section-intro"><span className="eyebrow"><span /> Services</span><h2>Clear repairs.<br /><em>No jargon.</em></h2></div><div className="service-grid">{services.map(([title, detail]) => <article className="service-card" key={title}><h3>{title}</h3><p>{detail}</p></article>)}</div></section>
+        <section className="services section-wrap" id="services"><div className="section-intro"><span className="eyebrow"><span /> Services</span><h2>Clear repairs.<br /><em>No jargon.</em></h2></div><div className="service-grid grid grid-cols-1 md:grid-cols-2 gap-6">{services.map(([title, detail]) => <article className="service-card bg-[#FEFAEF] text-[#182350] p-8 rounded-2xl shadow-lg border border-[#B9915E]/30 hover:-translate-y-1 transition-transform duration-300" key={title}><h3 className="text-xl font-bold mb-2">{title}</h3><p>{detail}</p></article>)}</div></section>
 
         <section className="comparison section-wrap" id="comparison"><span className="eyebrow"><span /> Our standard</span><h2>Genuine work leaves<br /><em>a different trace.</em></h2><div className="comparison-table"><div className="comparison-row comparison-head"><span>Quality marker</span><span>MacExperts</span><span>Typical shop</span></div>{comparisons.map(([label, us, them]) => <div className="comparison-row" key={label}><span>{label}</span><span className="ours">{us}</span><span>{them}</span></div>)}</div></section>
 
         <section className="location section-wrap" id="location"><div className="location-copy"><span className="eyebrow"><span /> The workshop</span><h2>Visit us in<br /><em>Kalyan Nagar.</em></h2><div className="location-facts"><div><Icon name="location" size={17} /><span><strong>B.R Plaza, CMR Main Rd</strong><small>HRBR Layout 2nd Block, Kalyan Nagar<br />Bengaluru, Karnataka 560043</small></span></div><div><Icon name="phone" size={17} /><span><strong>70227 18776</strong><small>Open every day / 9:30 AM - 8:30 PM</small></span></div></div><a className="button button-light" href="https://www.google.com/maps/search/?api=1&query=B.R+Plaza+CMR+Main+Road+HRBR+Layout+Kalyan+Nagar+Bengaluru" target="_blank" rel="noreferrer">Get directions <Icon name="external" size={14} /></a></div><div className="map-frame"><iframe title="MacExperts location map" loading="lazy" src="https://www.google.com/maps?q=B.R+Plaza%2C+CMR+Main+Road%2C+HRBR+Layout%2C+Kalyan+Nagar%2C+Bengaluru&output=embed" /></div></section>
       </main>
 
-      <footer className="site-footer"><div className="section-wrap footer-grid"><div className="footer-brand"><a className="brand" href="#top"><BrandMark /><span><strong>MacExperts</strong><small>Independent MacBook care</small></span></a><a className="inline-link" href="mailto:hello@macexperts.in">hello@macexperts.in</a></div><div className="footer-address"><span>Kalyan Nagar</span><p>B.R Plaza, CMR Main Rd<br />Bengaluru, Karnataka 560043</p><a href="tel:+917022718776"><Icon name="phone" size={14} /> +91 70227 18776</a></div></div><div className="section-wrap footer-bottom"><span>(c) 2026 MacExperts. Independent hardware facility.</span></div></footer>
+      <footer className="site-footer"><div className="section-wrap footer-grid"><div className="footer-brand flex flex-col gap-4"><a className="brand" href="#top"><BrandMark /><span><strong>MacExperts</strong><small>Independent MacBook care</small></span></a><a className="inline-link" href="mailto:hello@macexperts.in">hello@macexperts.in</a></div><div className="footer-address"><span>Kalyan Nagar</span><p>B.R Plaza, CMR Main Rd<br />Bengaluru, Karnataka 560043</p><a href="tel:+917022718776"><Icon name="phone" size={14} /> +91 70227 18776</a></div></div><div className="section-wrap footer-bottom"><span>(c) 2026 MacExperts. Independent hardware facility.</span></div></footer>
       <div className="mobile-sticky"><a href="tel:+917022718776"><Icon name="phone" size={17} /> Call</a><a href="https://wa.me/917022718776" target="_blank" rel="noreferrer"><Icon name="whatsapp" size={18} /> WhatsApp</a></div>
     </div>
   );
